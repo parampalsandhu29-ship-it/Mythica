@@ -1,0 +1,47 @@
+<section id="urban-legends">
+  <h2>Urban Legends</h2>
+  <p>Discover spine-chilling stories from around the world.</p>
+
+  <!-- Urban Legends List -->
+  <ul id="urban-legends-list" style="list-style:none; padding:0; margin-top:30px;">
+    <li style="margin-bottom:15px; font-size:1.2em;">
+      <strong>Slender Man</strong> - USA
+    </li>
+    <li style="margin-bottom:15px; font-size:1.2em;">
+      <strong>Kuchisake-onna</strong> - Japan
+    </li>
+    <li style="margin-bottom:15px; font-size:1.2em;">
+      <strong>Bloody Mary</strong> - Various Countries
+    </li>
+    <li style="margin-bottom:15px; font-size:1.2em;">
+      <strong>La Llorona</strong> - Mexico
+    </li>
+  </ul>
+
+  <!-- Button to add more legends (Admin only) -->
+  <div id="add-legend-container" style="display:none; margin-top:20px;">
+    <button onclick="addUrbanLegend()">Add New Legend</button>
+  </div>
+</section>
+
+<script>
+// Show Add Legend button only if admin
+if(isAdmin){
+  document.getElementById('add-legend-container').style.display = 'block';
+}
+
+// Function to add new urban legend
+function addUrbanLegend() {
+  let legendName = prompt("Enter Urban Legend Name:");
+  if(!legendName) return;
+  let country = prompt("Enter Country:");
+  if(!country) return;
+
+  let ul = document.getElementById("urban-legends-list");
+  let li = document.createElement("li");
+  li.style.marginBottom = "15px";
+  li.style.fontSize = "1.2em";
+  li.innerHTML = `<strong>${legendName}</strong> - ${country}`;
+  ul.appendChild(li);
+}
+</script>
