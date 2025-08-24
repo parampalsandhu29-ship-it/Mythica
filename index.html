@@ -5,36 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mythica</title>
 
-    <!-- Horror Background CSS -->
+    <!-- Google Fonts for spooky look -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
     <style>
+        /* Body and background */
         body {
-            background-image: url('images/horror-bg.jpg'); /* apni image ka path */
+            margin: 0;
+            height: 100vh;
+            background-image: url('images/horror-bg.jpg'); /* Apni horror image ka path */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Creepster', cursive;
             color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         /* Dark overlay for better text visibility */
         body::before {
             content: '';
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: -1;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 0;
+        }
+
+        /* Text content above overlay */
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Optional: simple flicker animation for spooky effect */
+        h1 {
+            font-size: 4em;
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+            }
+            20%, 22%, 24%, 55% {
+                opacity: 0.4;
+            }
+        }
+
+        p {
+            font-size: 1.5em;
+            max-width: 800px;
         }
     </style>
 </head>
 <body>
-
-    <h1>Welcome to Mythica</h1>
-    <p>Explore Haunted Places, Cursed Objects and Deep Sea Mysteries...</p>
-
+    <div class="content">
+        <h1>Welcome to Mythica</h1>
+        <p>Explore Haunted Places, Cursed Objects, Urban Legends, and Deep Sea Mysteries. Dare to uncover the unknown?</p>
+    </div>
 </body>
 </html>
