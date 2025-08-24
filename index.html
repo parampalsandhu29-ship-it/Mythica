@@ -5,60 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mythica</title>
 
-    <!-- Google Fonts for spooky look -->
+    <!-- Spooky font -->
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 
     <style>
-        /* Body and background */
-        body {
+        /* Reset margin & full screen */
+        html, body {
             margin: 0;
-            height: 100vh;
-            background-image: url('images/horror-bg.jpg'); /* Apni horror image ka path */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Background image & overlay */
+        body {
             font-family: 'Creepster', cursive;
             color: #fff;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            background: url('images/horror-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
             position: relative;
-            overflow: hidden;
         }
 
-        /* Dark overlay for better text visibility */
-        body::before {
-            content: '';
+        /* Dark overlay */
+        body::after {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.6);
             z-index: 0;
         }
 
-        /* Text content above overlay */
+        /* Content above overlay */
         .content {
             position: relative;
             z-index: 1;
         }
 
-        /* Optional: simple flicker animation for spooky effect */
+        /* Flicker effect for heading */
         h1 {
             font-size: 4em;
             animation: flicker 2s infinite;
         }
 
         @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                opacity: 1;
-            }
-            20%, 22%, 24%, 55% {
-                opacity: 0.4;
-            }
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 22%, 24%, 55% { opacity: 0.4; }
         }
 
         p {
