@@ -5,164 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mythica</title>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Creepster', cursive;
-  color: #fff;
-  background: url('images/horror-bg.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
-  z-index: 0;
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 50px 20px;
-}
-
-h1 {
-  font-size: 4em;
-  animation: flicker 2s infinite;
-}
-
-@keyframes flicker {
-  0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; }
-  20%,22%,24%,55% { opacity: 0.4; }
-}
-
-p {
-  font-size: 1.5em;
-  max-width: 800px;
-  margin: 0 auto 50px auto;
-}
-
-/* Categories */
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 50px;
-}
-
-.category-card {
-  background-color: rgba(30, 30, 30, 0.8);
-  border: 2px solid #fff;
-  border-radius: 15px;
-  width: 200px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
-  text-align: center;
-  padding: 10px;
-}
-
-.category-card:hover {
-  transform: scale(1.1);
-  background-color: rgba(255,0,0,0.8);
-}
-
-/* Sections */
-section {
-  padding: 100px 20px;
-  position: relative;
-  z-index: 1;
-}
-
-section h2 {
-  font-size: 3em;
-  margin-bottom: 20px;
-  text-decoration: underline;
-}
-
-section p {
-  font-size: 1.2em;
-  max-width: 800px;
-  margin: 0 auto;
-}
+  html, body {margin:0; padding:0; font-family: 'Creepster', cursive; color:#fff;}
+  body {
+    background: url('images/horror-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height:100vh;
+    position:relative;
+  }
+  body::after {
+    content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+    background-color: rgba(0,0,0,0.6); z-index:0;
+  }
+  .content {position:relative; z-index:1; text-align:center; padding:50px 20px;}
+  h1 {font-size:4em; animation:flicker 2s infinite;}
+  @keyframes flicker {0%,19%,21%,23%,25%,54%,56%,100%{opacity:1;}20%,22%,24%,55%{opacity:0.4;}}
+  p {font-size:1.5em; max-width:800px; margin:0 auto 50px auto;}
+  .categories {display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-bottom:30px;}
+  .category-card {background:rgba(30,30,30,0.8); border:2px solid #fff; border-radius:15px; width:200px; height:100px;
+    display:flex; justify-content:center; align-items:center; font-size:1.2em; cursor:pointer; transition:0.3s; text-align:center;}
+  .category-card:hover {transform:scale(1.1); background:rgba(255,0,0,0.8);}
+  section {padding:80px 20px; position:relative; z-index:1;}
+  section h2 {font-size:3em; margin-bottom:20px; text-decoration:underline;}
+  section p {font-size:1.2em; max-width:800px; margin:0 auto;}
+  button {padding:10px 20px; font-size:1em; cursor:pointer; margin-bottom:50px;}
 </style>
 </head>
 <body>
-
 <div class="content">
   <h1>Welcome to Mythica</h1>
-  <p>Explore Haunted Places, Cursed Objects, Urban Legends, and Mysterious Things. Dare to uncover the unknown?</p>
+  <p>Explore Haunted Places, Cursed Objects, Urban Legends, and Mysterious Things.</p>
 
-  <!-- Categories -->
   <div class="categories" id="categories-container">
-    <!-- Existing categories -->
     <a href="#urban-legends" class="category-card">Urban Legends</a>
     <a href="#haunted-places" class="category-card">Haunted Places</a>
     <a href="#haunted-objects" class="category-card">Haunted Objects</a>
     <a href="#mysterious-things" class="category-card">Mysterious Things</a>
   </div>
 
-  <!-- Button to add new category -->
-  <div style="margin-top: 30px;">
-    <button onclick="addCategory()" style="padding: 10px 20px; font-size: 1em; cursor: pointer;">Add Your Own Category</button>
-  </div>
+  <button onclick="addCategory()">Add Your Own Category</button>
 </div>
 
-<!-- Sections -->
 <div id="sections-container">
   <section id="urban-legends">
     <h2>Urban Legends</h2>
-    <p>Discover spine-chilling stories from around the world passed down through generations.</p>
+    <p>Discover spine-chilling stories from around the world.</p>
   </section>
-
   <section id="haunted-places">
     <h2>Haunted Places</h2>
-    <p>Explore abandoned mansions, eerie forests, and haunted castles with mysterious histories.</p>
+    <p>Explore abandoned mansions, eerie forests, and haunted castles.</p>
   </section>
-
   <section id="haunted-objects">
     <h2>Haunted Objects</h2>
-    <p>Learn about cursed artifacts, mysterious relics, and items said to carry supernatural powers.</p>
+    <p>Learn about cursed artifacts and mysterious relics.</p>
   </section>
-
   <section id="mysterious-things">
     <h2>Mysterious Things</h2>
-    <p>Uncover deep sea mysteries, unexplained phenomena, and paranormal occurrences that defy logic.</p>
+    <p>Uncover deep sea mysteries, unexplained phenomena, and paranormal events.</p>
   </section>
 </div>
 
 <script>
 function addCategory() {
-  let categoryName = prompt("Enter new category name:");
-  let categoryDesc = prompt("Enter description for this category:");
-  if(categoryName && categoryDesc) {
-    // Create category card
-    let newCard = document.createElement("a");
-    let sectionId = categoryName.toLowerCase().replace(/\s+/g,'-');
-    newCard.href = "#" + sectionId;
-    newCard.className = "category-card";
-    newCard.innerText = categoryName;
+  let name = prompt("Enter category name:");
+  if(!name) return;
+  let desc = prompt("Enter description:");
+  if(!desc) return;
 
-    document.getElementById("categories-container").appendChild(newCard);
+  let sectionId = name.toLowerCase().replace(/\s+/g, '-');
 
-    // Create section
-    let newSection = document.createElement("section");
-    newSection.id = sectionId;
-    newSection.innerHTML = `<h2>${categoryName}</h2><p>${categoryDesc}</p>`;
-    document.getElementById("sections-container").appendChild(newSection);
-  }
+  // Add card
+  let card = document.createElement("a");
+  card.href = "#"+sectionId;
+  card.className = "category-card";
+  card.innerText = name;
+  document.getElementById("categories-container").appendChild(card);
+
+  // Add section
+  let section = document.createElement("section");
+  section.id = sectionId;
+  section.innerHTML = `<h2>${name}</h2><p>${desc}</p>`;
+  document.getElementById("sections-container").appendChild(section);
 }
 </script>
 
